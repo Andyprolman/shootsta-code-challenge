@@ -1,9 +1,12 @@
 import { connect } from 'react-redux';
 import Uploads from './uploads';
+import { fileURLToPath } from 'url';
 
 function mapStoreToProps(store){
     return {
-        uploadsTes: store.uploads.uploadsTest
+        input: store.uploads.input,
+        file: store.uploads.file,
+        fileName: store.uploads.fileName
     }
 }
 

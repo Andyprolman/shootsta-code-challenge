@@ -4,6 +4,7 @@ import Home from './home';
 function mapStoreToProps(store){
     return {
         homeTest: store.home.homeTest
+        
     }
 }
 
