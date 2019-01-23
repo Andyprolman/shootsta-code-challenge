@@ -17,7 +17,7 @@ class App extends React.Component {
         <Router>
           <div>
             <Route exact path='/' component={Home} />
-            <Route path='/uploads' component={Uploads} />
+            <Route path='/upload' component={Uploads} />
           </div>
         </Router>
       </Provider>

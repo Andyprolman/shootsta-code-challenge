@@ -1,28 +1,28 @@
 const express = require('express');
 const fileUpload = require('express-fileupload');
 const app = express();
+const savedVideos = [];
 
 app.use(fileUpload());
 
-
 app.use(express.static('public'));
 
-app.post('/uploads', function(req, res){
+app.post('/api/upload', function(req, res){
 
-    //console.log('request: ', req.files.file)
     let file = req.files.file;
     const fileName = req.files.file.name
+    savedVideos.push(fileName)
 
     file.mv(`./public/videos/${fileName}`, function(err) {
         if(err)
         return res.status(500).send(err);
 
-        res.send('File Uploaded')
+        res.send({
+            status: 'File Uploaded',
+            content: savedVideos
+        })
     })
-
-    console.log('file: ', file)
-    console.log('file name: ', fileName)
-    //res.send(file);
 })
+
 
 module.exports = app;

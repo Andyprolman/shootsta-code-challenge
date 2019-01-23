@@ -1,0 +1,12 @@
+#title{
+  font-family: oswald;
+  font-weight: bold;
+}
+body{
+  background-color: #bedaf7;
+  margin-top: 5%;
+  width: 100vw;
+}
+ul{
+  list-style-type: none;
+}

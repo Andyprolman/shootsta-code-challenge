@@ -5,7 +5,7 @@
   "main": "src/index",
   "scripts": {
     "start": "node server",
-    "test": "mocha test/**.*.js --exit",
+    "test": "mocha --require  mocha Tests/*.spec.js --exit",
     "build": "webpack",
     "dev": "npm run build && npm start"
   },
@@ -13,16 +13,22 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.18.0",
+    "chai-as-promised": "^7.1.1",
+    "chai-http": "^4.2.1",
     "express": "^4.16.4",
     "express-fileupload": "^1.1.1-alpha.1",
     "file-upload-react": "^0.1.2",
     "form-data": "^2.3.3",
+    "nightmare-react-utils": "^1.0.4",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-redux": "^6.0.0",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
-    "redux": "^4.0.1"
+    "redux": "^4.0.1",
+    "redux-persist": "^5.10.0",
+    "redux-promise-middleware": "^5.1.1",
+    "sync-request": "^6.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",

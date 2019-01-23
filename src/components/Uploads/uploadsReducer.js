@@ -3,6 +3,8 @@ const initialstate = {
     upload: '',
     file: '',
     fileName:'',
+    uploadStatus: '',
+    savedVideos: []
 
 }
 
@@ -13,15 +15,28 @@ const uploadsReducer = (state = initialstate, action) => {
         case 'HANDLE_INPUT': {
             return {
                 ...state,
-                file: payload,
-                fileName: payload.name,
+                file: payload.input,
+                fileName: payload.input.name,
+                uploadStatus: false
             }
         }
         case 'HANDLE_UPLOAD_FULFILLED': {
-            console.log('payload: ', payload)
+            const newItems = [...state.savedVideos];
+            if(payload.content.length > 0) {
+                newItems.push(payload.content[payload.content.length-1])
+            }
             return {
                 ...state,
-                file: payload
+                uploadStatus: true,
+                savedVideos: newItems,
+            }
+        }
+        case 'RESET_UPLOADS': {
+            return {
+                ...state,
+                uploadStatus: false,
+                file: '',
+                fileName: ''
             }
         }
         default: {
